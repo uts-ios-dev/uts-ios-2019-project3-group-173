@@ -1,0 +1,6 @@
+framework module Pods_DoctorsPointTests {
+  umbrella header "Pods-DoctorsPointTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
