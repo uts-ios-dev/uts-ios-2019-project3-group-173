@@ -7,15 +7,17 @@ target 'DoctorsPoint' do
 
   # Pods for DoctorsPoint
 pod 'Firebase/Core'
-pod 'Firebase/Database'
+pod 'FirebaseDatabase' #database
 pod 'Firebase/Auth'
 pod 'GoogleSignIn'
+
+pod 'DateTimePicker'
 
   target 'DoctorsPointTests' do
     inherit! :search_paths
     # Pods for testing
   end
-
+	
   target 'DoctorsPointUITests' do
     inherit! :search_paths
     # Pods for testing
