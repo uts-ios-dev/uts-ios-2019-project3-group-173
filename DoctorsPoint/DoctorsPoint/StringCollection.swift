@@ -15,4 +15,5 @@ class StringCollection {
     var toLoginView = "toLoginView"
     var appointment = "appointment"
     var account = "account"
+    var backToPatientMainView = "backToPatientMainView"
 }
