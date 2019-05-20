@@ -121,8 +121,6 @@ class MakeAppointmentVC: UIViewController {
         
         DatabaseService(patient!).appointmentReference?.childByAutoId().setValue(appointment)
         
-        performSegue(withIdentifier: myString.backToPatientMainView, sender: self)
-        
         //todo set as a dictionary instead of an object
     }
     
