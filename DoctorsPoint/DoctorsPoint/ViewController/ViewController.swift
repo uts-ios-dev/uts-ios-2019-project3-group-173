@@ -14,17 +14,21 @@ import GoogleSignIn
 class ViewController: UIViewController, GIDSignInUIDelegate {
 
     
-    var ref: DatabaseReference!
-    @IBOutlet weak var testDatabaseTF: UITextField!
+   // var ref: DatabaseReference!
+    //@IBOutlet weak var testDatabaseTF: UITextField!
     
-    @IBOutlet weak var accountInfoLB: UILabel!
+    //@IBOutlet weak var accountInfoLB: UILabel!
 
+    
+   
+   
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        ref = Database.database().reference()
+        //ref = Database.database().reference()
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().signIn()
         
@@ -34,8 +38,8 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
 
     @IBAction func updataDatabase(_ sender: Any) {
         
-        let myText = testDatabaseTF.text!
-        self.ref.child("testStringDatabase").setValue(myText)
+       // let myText = testDatabaseTF.text!
+        //self.ref.child("testStringDatabase").setValue(myText)
         
     }
     
@@ -56,7 +60,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
                 print("email is \(String(describing: email))") //debug
                 print("photoURL id is \(String(describing: photoURL))") //todo //debug
                 
-                accountInfoLB.text = "Account info: " + email! //debug
+               // accountInfoLB.text = "Account info: " + email! //debug
                 
             }
         }

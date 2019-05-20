@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import Firebase
 import GoogleSignIn
 
 @UIApplicationMain
@@ -27,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
+       
         
         return true
     }
