@@ -18,6 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo2" translatesAutoresizingMaskIntoConstraints="NO" id="KHi-De-59a">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7FC-jw-Ppu">
                                 <rect key="frame" x="72.666666666666686" y="529" width="230" height="30"/>
                                 <accessibility key="accessibilityConfiguration" hint="username"/>
@@ -60,13 +63,17 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Lbo-1F-kmH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6SK-5D-cNb"/>
                             <constraint firstItem="ALr-ad-7Pw" firstAttribute="top" secondItem="7FC-jw-Ppu" secondAttribute="bottom" constant="8" id="AvY-gr-5nj"/>
+                            <constraint firstItem="KHi-De-59a" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="DjW-an-BPj"/>
+                            <constraint firstItem="KHi-De-59a" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="NZj-Oq-Zjt"/>
+                            <constraint firstItem="KHi-De-59a" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Noy-EI-wyr"/>
                             <constraint firstItem="Lbo-1F-kmH" firstAttribute="top" secondItem="YbL-rh-2vB" secondAttribute="bottom" constant="8" id="V4C-bf-Vkf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Lbo-1F-kmH" secondAttribute="bottom" constant="69" id="WPq-3S-ain"/>
                             <constraint firstItem="YbL-rh-2vB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZCx-DN-a7j"/>
+                            <constraint firstAttribute="bottom" secondItem="KHi-De-59a" secondAttribute="bottom" id="hG7-V5-plc"/>
                             <constraint firstItem="ALr-ad-7Pw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pV4-rE-Ew6"/>
                             <constraint firstItem="7FC-jw-Ppu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rw9-Bw-agC"/>
                             <constraint firstItem="YbL-rh-2vB" firstAttribute="top" secondItem="ALr-ad-7Pw" secondAttribute="bottom" constant="8" id="vIL-3g-sy9"/>
@@ -80,7 +87,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-447" y="134"/>
+            <point key="canvasLocation" x="-447.19999999999999" y="133.74384236453201"/>
         </scene>
         <!--Doctor MenuVC-->
         <scene sceneID="hT8-EN-oAd">
@@ -378,4 +385,7 @@
             <point key="canvasLocation" x="1712.8" y="976.84729064039414"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo2" width="168" height="300"/>
+    </resources>
 </document>
