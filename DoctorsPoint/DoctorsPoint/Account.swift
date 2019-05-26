@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 struct account {
     
@@ -14,7 +15,7 @@ struct account {
     let email: String
     let isPatient: Bool
     
-    init?(_ uid: String, _ email: String, isPatient: Bool)
+    init(_ uid: String, _ email: String, isPatient: Bool)
     {
         self.uid = uid
         self.email = email

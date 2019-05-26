@@ -14,7 +14,7 @@ class DatabaseService {
     
     var user: User?
     var appointmentReference: DatabaseReference?
-    var accountReference: DatabaseReference?
+    var userReference: DatabaseReference?
     let myString = StringCollection()
     
     init(_ user: User)
@@ -22,6 +22,6 @@ class DatabaseService {
         self.user = user
         
         self.appointmentReference = Database.database().reference().child(myString.appointment).child(user.uid)
-        self.accountReference = Database.database().reference().child(myString.account).child(user.uid)
+        self.userReference = Database.database().reference().child(myString.account).child(user.uid)
     }
 }
