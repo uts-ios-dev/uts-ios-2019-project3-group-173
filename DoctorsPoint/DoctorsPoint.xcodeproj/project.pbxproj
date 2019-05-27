@@ -27,6 +27,7 @@
 		4FEFCF73228C234700D995CD /* GIDSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEFCF72228C234700D995CD /* GIDSignInButton.swift */; };
 		4FEFCF7C228C28AE00D995CD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FEFCF7B228C28AE00D995CD /* GoogleService-Info.plist */; };
 		B70EC31A6A4C1E63ED2C0F0E /* Pods_DoctorsPointTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D050CA1B4B5B085A07ADAE /* Pods_DoctorsPointTests.framework */; };
+		E31CA021229C2E6200812399 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31CA020229C2E6200812399 /* WelcomeVC.swift */; };
 		FC3F0F916C21F36C7EAE87E8 /* Pods_DoctorsPointUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 530EB12C324D3703380A92BF /* Pods_DoctorsPointUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,7 @@
 		93A0DDD3A25C153FA91D6EF8 /* Pods-DoctorsPointTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorsPointTests.release.xcconfig"; path = "Target Support Files/Pods-DoctorsPointTests/Pods-DoctorsPointTests.release.xcconfig"; sourceTree = "<group>"; };
 		A8AD7A34F3E9B3F8A63942E8 /* Pods-DoctorsPointTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorsPointTests.debug.xcconfig"; path = "Target Support Files/Pods-DoctorsPointTests/Pods-DoctorsPointTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C2D050CA1B4B5B085A07ADAE /* Pods_DoctorsPointTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoctorsPointTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E31CA020229C2E6200812399 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		FF39E37D40C8EFD241CE904A /* Pods-DoctorsPointUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorsPointUITests.release.xcconfig"; path = "Target Support Files/Pods-DoctorsPointUITests/Pods-DoctorsPointUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -198,6 +200,7 @@
 				4F1854C3228DA0B40049BA90 /* PatientMenuVC.swift */,
 				4F797F4F2292C3550025E5A2 /* ViewAppointmentVC.swift */,
 				4F30E98E228D941100B64A48 /* MakeAppointmentVC.swift */,
+				E31CA020229C2E6200812399 /* WelcomeVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				4F797F502292C3550025E5A2 /* ViewAppointmentVC.swift in Sources */,
 				4F2A974A228C1C7600288EA0 /* LoginVC.swift in Sources */,
 				4F1854C4228DA0B40049BA90 /* PatientMenuVC.swift in Sources */,
+				E31CA021229C2E6200812399 /* WelcomeVC.swift in Sources */,
 				4F30E98B228D928000B64A48 /* DoctorMenuVC.swift in Sources */,
 				4F30E991228D96BE00B64A48 /* Appointment.swift in Sources */,
 				4F2A9748228C1C7600288EA0 /* AppDelegate.swift in Sources */,

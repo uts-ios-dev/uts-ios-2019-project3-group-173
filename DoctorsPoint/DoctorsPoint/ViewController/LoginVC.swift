@@ -14,12 +14,17 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
 
     let myString = StringCollection()
 
+   
+    @IBOutlet weak var topConstraintHeight: NSLayoutConstraint!
+    @IBAction func ShowSignInPop(_ sender: Any) {
+        topConstraintHeight.constant = 100
+        UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: .curveEaseOut, animations: {self.view.layoutIfNeeded()}, completion: nil)
+        print("clicked")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-
-        
-        
+       topConstraintHeight.constant = 800
+  
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().signIn()
         
