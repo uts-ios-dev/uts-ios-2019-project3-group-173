@@ -17,4 +17,10 @@ class StringCollection {
     var account = "account"
     var fromPMenutoView = "fromPMenutoView"
     var fromPFormtoView = "fromPFormtoView"
+    var doctors = "doctors"
+    
+    
+    
+    var myself = "Myself"
+    var someoneElse = "Someone Else"
 }

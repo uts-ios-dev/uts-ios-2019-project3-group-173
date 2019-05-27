@@ -9,6 +9,8 @@
 import UIKit
 import FirebaseDatabase
 import Firebase
+import BLTNBoard
+import FirebaseAuth
 
 class MakeAppointmentVC: UIViewController {
     
@@ -25,11 +27,16 @@ class MakeAppointmentVC: UIViewController {
     let myString = StringCollection()
     let patient = Auth.auth().currentUser
     var ref: DatabaseReference!
+
+    
+    lazy var bulletinManager: BLTNItemManager = {
+        let introPage = BulletinDataSource.makePatientType()
+        return BLTNItemManager(rootItem: introPage)
+    }()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
@@ -55,10 +62,19 @@ class MakeAppointmentVC: UIViewController {
         timeTF.inputView = timePicker
 
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(MakeAppointmentVC.dismissDatePicker(gestureRecongnizer:)))
-        view.addGestureRecognizer(tap)
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(MakeAppointmentVC.dismissDatePicker(gestureRecongnizer:)))
+//        view.addGestureRecognizer(tap)
+        
         
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        bulletinManager.showBulletin(above: self)
+    }
+    
+    
     
     @objc func dateChanged(datePicker: UIDatePicker){
         let dateFormatter = DateFormatter()
@@ -72,19 +88,11 @@ class MakeAppointmentVC: UIViewController {
         timeTF.text = timeFormatter.string(from: timePicker.date)
     }
     
-    @objc func dismissDatePicker(gestureRecongnizer: UIDatePicker) {
-        view.endEditing(true)
-    }
+//    @objc func dismissDatePicker(gestureRecongnizer: UIDatePicker) {
+//        view.endEditing(true)
+//    }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+
     
     
     @IBAction func submitAppointment(_ sender: Any) {
@@ -123,6 +131,16 @@ class MakeAppointmentVC: UIViewController {
         
         //todo set as a dictionary instead of an object
     }
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
     
     
     

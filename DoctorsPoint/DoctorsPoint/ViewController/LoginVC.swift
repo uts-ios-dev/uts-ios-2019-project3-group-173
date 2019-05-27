@@ -9,17 +9,19 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+import FirebaseAuth
 
 class LoginVC: UIViewController, GIDSignInUIDelegate {
 
+    @IBOutlet weak var emailTF: UITextField!
+    @IBOutlet weak var passwordTF: UITextField!
+    
     let myString = StringCollection()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-        
-        
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().signIn()
         
@@ -53,6 +55,31 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
         performSegue(withIdentifier: myString.toDoctorMainView, sender: self)
     }
     
+    @IBAction func signIn(_ sender: UIButton) {
+        
+        guard let email = emailTF.text,
+            email != "",
+            let password = passwordTF.text,
+            password != ""
+            else {//show invalidte message
+                return
+        }
+    
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            guard error == nil else {
+                // show login fail
+                return
+            }
+            
+            guard let user = user else { return }
+            
+            
+            
+            
+            
+            
+        }
+    }
     
 }
 

@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 
 class PatientMenuVC: UIViewController {
     
@@ -52,7 +53,21 @@ class PatientMenuVC: UIViewController {
             // ...
         }
     }
+    
+    
+    @IBAction func signOut(_ sender: Any) {
+        
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            performSegue(withIdentifier: myString.toLoginView, sender: self )
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        
+        
     }
+}
     
     
     

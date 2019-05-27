@@ -10,8 +10,11 @@ pod 'Firebase/Core'
 pod 'FirebaseDatabase' #database
 pod 'Firebase/Auth'
 pod 'GoogleSignIn'
+pod 'BulletinBoard'
 
-pod 'DateTimePicker'
+pod 'Fabric', '~> 1.9.0'
+pod 'Crashlytics', '~> 3.12.0'
+
 
   target 'DoctorsPointTests' do
     inherit! :search_paths

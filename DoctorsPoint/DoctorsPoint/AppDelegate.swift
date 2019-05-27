@@ -9,6 +9,9 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+import Fabric
+import Crashlytics
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -22,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         // Use Firebase library to configure APIs
         FirebaseApp.configure()
+        Fabric.with([Crashlytics.self])
+
         
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
