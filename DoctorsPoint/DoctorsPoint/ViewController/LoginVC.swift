@@ -1,39 +1,40 @@
-//
-//  ViewController.swift
-//  DoctorsPoint
-//
-//  Created by Jiajian Liang on 2019/5/15.
-//  Copyright © 2019年 UTS. All rights reserved.
-//
 
 import UIKit
 import Firebase
-import GoogleSignIn
 
-class LoginVC: UIViewController, GIDSignInUIDelegate {
+class LoginVC: UIViewController {
 
     let myString = StringCollection()
-
    
+    @IBOutlet weak var logoTopConstraintHeight: NSLayoutConstraint!
     @IBOutlet weak var topConstraintHeight: NSLayoutConstraint!
+    
     @IBAction func ShowSignInPop(_ sender: Any) {
         topConstraintHeight.constant = 100
+        logoTopConstraintHeight.constant = 100
         UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: .curveEaseOut, animations: {self.view.layoutIfNeeded()}, completion: nil)
+        
         print("clicked")
     }
+    
+//    @IBAction func hideSignInPop(_ sender: Any) {
+//        topConstraintHeight.constant = 800
+//        logoTopConstraintHeight.constant = 238
+//        UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: .curveEaseOut, animations: {self.view.layoutIfNeeded()}, completion: nil)
+//        print("clicked")
+//    }
     override func viewDidLoad() {
         super.viewDidLoad()
-       topConstraintHeight.constant = 800
-  
-        GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signIn()
+       topConstraintHeight.constant = 200
+        logoTopConstraintHeight.constant = 238
+    
         
     }
 
     override func viewDidAppear(_ animated: Bool) {
-            checkLogined()
+        super.viewDidAppear(animated)
     }
-    
+
     
     func checkLogined() {
         if Auth.auth().currentUser != nil

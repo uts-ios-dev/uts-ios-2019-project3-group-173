@@ -9,7 +9,6 @@ target 'DoctorsPoint' do
 pod 'Firebase/Core'
 pod 'FirebaseDatabase' #database
 pod 'Firebase/Auth'
-pod 'GoogleSignIn'
 
 pod 'DateTimePicker'
 
