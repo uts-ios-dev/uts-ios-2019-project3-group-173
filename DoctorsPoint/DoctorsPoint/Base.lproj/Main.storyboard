@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -59,6 +59,26 @@
                                     <constraint firstAttribute="width" constant="230" id="w8s-vl-YxE"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c3e-mf-l27">
+                                <rect key="frame" x="16" y="730" width="144" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <size key="titleShadowOffset" width="50" height="20"/>
+                                <state key="normal" title="log in as doctor"/>
+                                <connections>
+                                    <segue destination="7Gy-I0-GhS" kind="show" id="Vla-ME-OYI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MdG-p2-E92">
+                                <rect key="frame" x="201" y="730" width="158" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <size key="titleShadowOffset" width="50" height="20"/>
+                                <state key="normal" title="log in as customer"/>
+                                <connections>
+                                    <segue destination="Tar-yV-GrH" kind="show" id="ObW-Xq-EPX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -73,16 +93,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <connections>
-                        <segue destination="Dzy-tj-jjB" kind="show" identifier="toPatientMainView" id="kaK-hK-2vA"/>
-                        <segue destination="qH7-YT-6vD" kind="show" identifier="toDoctorMainView" id="V5Q-Wh-ird"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-447" y="134"/>
+            <point key="canvasLocation" x="-447.19999999999999" y="133.74384236453201"/>
         </scene>
-        <!--Doctor MenuVC-->
+        <!--Doctor-->
         <scene sceneID="hT8-EN-oAd">
             <objects>
                 <viewController id="qH7-YT-6vD" customClass="DoctorMenuVC" customModule="DoctorsPoint" customModuleProvider="target" sceneMemberID="viewController">
@@ -104,12 +120,47 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="WMG-vI-ewz"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Doctor" image="icon" id="Bm1-wf-tVl"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h9O-C7-Siq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-447" y="977"/>
+            <point key="canvasLocation" x="-650" y="1858"/>
         </scene>
-        <!--Patient MenuVC-->
+        <!--Avaliability-->
+        <scene sceneID="M0F-HD-ScR">
+            <objects>
+                <viewController id="2bX-tT-rn9" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hKE-6J-sMU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="SAb-HA-f0w"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Avaliability" image="abaliable" id="9y9-2g-DXw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="62l-te-cIJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="284" y="1859"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="8T9-DL-otB">
+            <objects>
+                <tabBarController id="7Gy-I0-GhS" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="r2Y-Zw-8tj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="qH7-YT-6vD" kind="relationship" relationship="viewControllers" id="Z7E-X0-pth"/>
+                        <segue destination="2bX-tT-rn9" kind="relationship" relationship="viewControllers" id="bvv-A3-bB7"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z48-z4-dY0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-650" y="1037"/>
+        </scene>
+        <!--Customer-->
         <scene sceneID="3lG-8x-NsY">
             <objects>
                 <viewController id="Dzy-tj-jjB" customClass="PatientMenuVC" customModule="DoctorsPoint" customModuleProvider="target" sceneMemberID="viewController">
@@ -140,20 +191,48 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wdk-Ec-3jC">
+                                <rect key="frame" x="157" y="627" width="62" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Log out"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="K1W-V9-AEC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="pdl-dY-q4I"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Customer" image="icon" id="ePQ-vR-lyI"/>
                     <connections>
                         <outlet property="accountInfoLB" destination="8PJ-jY-XdM" id="QRL-hl-YRD"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="toLoginView" id="izn-JF-XUf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3zL-zA-lVF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="714" y="134"/>
+            <point key="canvasLocation" x="1588" y="134"/>
         </scene>
-        <!--Make AppointmentVC-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="xFc-3f-P8Z">
+            <objects>
+                <tabBarController id="Tar-yV-GrH" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sgz-r0-kB3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Dzy-tj-jjB" kind="relationship" relationship="viewControllers" id="FPT-Wz-Jm9"/>
+                        <segue destination="sBH-Y2-r2B" kind="relationship" relationship="viewControllers" id="CWr-ay-A9c"/>
+                        <segue destination="1mH-z4-LfZ" kind="relationship" relationship="viewControllers" id="C58-6X-owv"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uYh-iR-Tlb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="575" y="134"/>
+        </scene>
+        <!--New Appointment-->
         <scene sceneID="ZbJ-y9-OEF">
             <objects>
                 <viewController id="sBH-Y2-r2B" customClass="MakeAppointmentVC" customModule="DoctorsPoint" customModuleProvider="target" sceneMemberID="viewController">
@@ -162,20 +241,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qvq-f6-sw7">
-                                <rect key="frame" x="163" y="518" width="49" height="30"/>
+                                <rect key="frame" x="163" y="469" width="49" height="30"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="submitAppointment:" destination="sBH-Y2-r2B" eventType="touchUpInside" id="9yJ-1m-THY"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aWh-Oa-kq3">
-                                <rect key="frame" x="184" y="221" width="97" height="30"/>
+                                <rect key="frame" x="184" y="172" width="97" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Flp-Ka-Pwa">
-                                <rect key="frame" x="184" y="272" width="97" height="30"/>
+                                <rect key="frame" x="184" y="223" width="97" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="8Up-At-ZaQ"/>
                                     <constraint firstAttribute="height" constant="30" id="Tf1-sZ-UEZ"/>
@@ -185,37 +264,37 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zc2-RO-6Zc">
-                                <rect key="frame" x="184" y="321" width="97" height="30"/>
+                                <rect key="frame" x="184" y="272" width="97" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7eL-GZ-04j">
-                                <rect key="frame" x="125" y="326" width="49" height="21"/>
+                                <rect key="frame" x="125" y="277" width="49" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgg-5q-IBG">
-                                <rect key="frame" x="93" y="275" width="82" height="21"/>
+                                <rect key="frame" x="93" y="226" width="82" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2K-ck-R89">
-                                <rect key="frame" x="93" y="224" width="83" height="21"/>
+                                <rect key="frame" x="93" y="175" width="83" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IgT-hi-lmL">
-                                <rect key="frame" x="184" y="359" width="97" height="30"/>
+                                <rect key="frame" x="184" y="310" width="97" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doctor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I70-QJ-Pgh">
-                                <rect key="frame" x="125" y="368" width="53" height="21"/>
+                                <rect key="frame" x="125" y="319" width="53" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -227,7 +306,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cFN-ZK-sfp">
-                                <rect key="frame" x="115" y="435" width="219" height="30"/>
+                                <rect key="frame" x="115" y="386" width="219" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="219" id="gEn-7p-H0z"/>
                                     <constraint firstAttribute="height" constant="30" id="rtk-nT-d4H"/>
@@ -237,7 +316,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bap-cO-ELs">
-                                <rect key="frame" x="117" y="480" width="219" height="30"/>
+                                <rect key="frame" x="117" y="431" width="219" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="kge-Te-unQ"/>
                                     <constraint firstAttribute="width" constant="219" id="lVy-kC-zg1"/>
@@ -288,6 +367,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MMp-QY-0ql"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="New Appointment" image="makeappionment" id="sG0-hY-8SF"/>
                     <connections>
                         <outlet property="dateTF" destination="cFN-ZK-sfp" id="3O5-e9-KkI"/>
                         <outlet property="doctorTF" destination="IgT-hi-lmL" id="clG-tg-Q4o"/>
@@ -300,9 +380,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y9m-bw-xPC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1712.8" y="133.00492610837438"/>
+            <point key="canvasLocation" x="615" y="1037"/>
         </scene>
-        <!--View AppointmentVC-->
+        <!--MyAppointment-->
         <scene sceneID="BaL-wC-qhi">
             <objects>
                 <viewController id="1mH-z4-LfZ" customClass="ViewAppointmentVC" customModule="DoctorsPoint" customModuleProvider="target" sceneMemberID="viewController">
@@ -369,13 +449,24 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="TqI-BC-7V5"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="MyAppointment" image="myapp" id="vMy-Vq-fIG"/>
                     <connections>
                         <outlet property="appointmentTBV" destination="2D5-kD-8Ag" id="ftC-iD-mFf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ou-N7-MJU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1712.8" y="976.84729064039414"/>
+            <point key="canvasLocation" x="1636" y="1066"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="abaliable" width="33.333332061767578" height="33.333332061767578"/>
+        <image name="icon" width="33.333332061767578" height="33.333332061767578"/>
+        <image name="makeappionment" width="33.333332061767578" height="33.333332061767578"/>
+        <image name="myapp" width="33.333332061767578" height="33.333332061767578"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="C58-6X-owv"/>
+        <segue reference="CWr-ay-A9c"/>
+    </inferredMetricsTieBreakers>
 </document>
