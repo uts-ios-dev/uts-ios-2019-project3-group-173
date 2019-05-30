@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>CollectionKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Crashlytics.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -64,16 +69,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>GoogleSignIn.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>GoogleToolboxForMac.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>GoogleUtilities.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -90,6 +85,11 @@
 			<false/>
 		</dict>
 		<key>Pods-DoctorsPointUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>YetAnotherAnimationLibrary.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

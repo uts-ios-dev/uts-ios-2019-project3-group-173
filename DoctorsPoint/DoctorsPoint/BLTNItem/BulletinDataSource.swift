@@ -20,14 +20,6 @@ enum BulletinDataSource {
         page.actionButtonTitle = "Continue"
         page.alternativeButtonTitle = "Not now"
         
-//        page.shouldStartWithActivityIndicator = true
-//        page.presentationHandler = { item in
-//
-//            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
-//                item.manager?.hideActivityIndicator()
-//            }
-//
-//        }
         return page
         
     }
@@ -62,6 +54,26 @@ enum BulletinDataSource {
         page.actionButtonTitle = "Continue"
         page.alternativeButtonTitle = "Go back"
 
+        return page
+    }
+    
+    static func makeDoctorChoice() -> ChooseDoctorBLTN {
+        
+        let page = ChooseDoctorBLTN(title: "Your Prefer Doctor")
+        page.descriptionText = "Choose a doctor below"
+        page.actionButtonTitle = "Continue"
+        page.alternativeButtonTitle = "Go Back"
+        
+        return page
+    }
+    
+    static func makeTimeChoice() -> ChooseTimeBLTN {
+        
+        let page = ChooseTimeBLTN(title: "Your Appointment Time")
+        page.descriptionText = "When do you want to meet us?"
+        page.alternativeButtonTitle = "Go Back"
+        page.actionButtonTitle = "Continue"
+        
         return page
     }
     

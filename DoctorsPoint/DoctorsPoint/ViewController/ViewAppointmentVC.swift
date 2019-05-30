@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Firebase
 import FirebaseAuth
+import CollectionKit
 
 
 class ViewAppointmentVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -24,17 +25,19 @@ class ViewAppointmentVC: UIViewController, UITableViewDataSource, UITableViewDel
         
         DatabaseService(viewer!).appointmentReference?.observe(DataEventType.value, with: { (snapshot) in
             print(snapshot)
-            guard let appointmentList = FirebaseSnapshot(snapshot) else {return}
+            guard let appointmentList = AppointmentFirebaseSnapshot(snapshot) else {return}
             self.userAppointment = appointmentList.appointments
             self.userAppointment.sort(by: { $0.date.compare($1.date) == .orderedDescending })
             self.appointmentTBV.reloadData()
         }) //getting appointment database according to current user logined -- in JSON
             
         
-        
         appointmentTBV.delegate = self
         appointmentTBV.dataSource = self
         appointmentTBV.reloadData()
+        
+
+        
         
     }
 

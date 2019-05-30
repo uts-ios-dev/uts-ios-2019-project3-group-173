@@ -27,4 +27,5 @@ class DatabaseService {
         self.userReference = Database.database().reference().child(myString.account).child(user.uid)
         self.doctorReference = Database.database().reference().child(myString.doctors)
     }
+        
 }

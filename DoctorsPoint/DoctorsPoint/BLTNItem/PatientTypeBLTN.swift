@@ -10,7 +10,6 @@
 import UIKit
 import BLTNBoard
 
-
 class PatientTypeBLTN: BLTNPageItem {
     
     let myString = StringCollection()
@@ -72,6 +71,10 @@ class PatientTypeBLTN: BLTNPageItem {
     }
     
     override func actionButtonTapped(sender: UIButton) {
+        if next == nil
+        {
+            next = BulletinDataSource.makeAppointmentType()
+        }
         manager?.displayNextItem()
     }
     

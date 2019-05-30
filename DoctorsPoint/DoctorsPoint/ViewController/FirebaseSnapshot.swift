@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-struct FirebaseSnapshot {
+struct AppointmentFirebaseSnapshot {
     
     var appointments: [Appointment]
 
@@ -23,4 +23,22 @@ struct FirebaseSnapshot {
             appointments.append(appointment)
         }
     }
+}
+
+struct AvailabilitySnapshot {
+    
+    var totalAvailability: [DoctorAvailability]
+    
+    init?(_ snapshot: DataSnapshot) {
+        
+        totalAvailability = [DoctorAvailability]()
+        
+        guard let snapDictionary = snapshot.value as? [String: [String: Any]] else {return nil }
+        for snap in snapDictionary {
+            guard let availability = DoctorAvailability(snap.key, snap.value) else {continue }
+            totalAvailability.append(availability)
+        }
+    }
+
+    
 }
