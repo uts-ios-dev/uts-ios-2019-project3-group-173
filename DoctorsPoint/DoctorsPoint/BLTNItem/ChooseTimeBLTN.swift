@@ -9,172 +9,105 @@
 import Foundation
 import BLTNBoard
 import CollectionKit
+import Firebase
 
 class ChooseTimeBLTN: BLTNPageItem {
     
     let myString = StringCollection()
+    lazy var timePicker = UIDatePicker()
+    var doctorList: [String] = []
     
-    var mondayData: [String] = []
-    var tuesdayData: [String] = []
-    var wednesdayData: [String] = []
-    var thursdayData: [String] = []
-    var fridayData: [String] = []
-    
-    
-    var arrangedSubViews: [UIView] = []
-    let timeCollectionView = CollectionView()
-    var currentIndex : Int = 0
-    var previousIndex: Int = 0
     
     override func makeViewsUnderDescription(with interfaceBuilder: BLTNInterfaceBuilder) -> [UIView]? {
+
+        timePicker = UIDatePicker()
+        timePicker.datePickerMode = .time
+        timePicker.addTarget(self, action: #selector(timeChanged), for: .valueChanged)
         
-        prepareData()
         
-        if mondayData.count == 0 && tuesdayData.count == 0 && wednesdayData.count == 0 && thursdayData.count == 0 && fridayData.count == 0
-        {
-            self.descriptionText = myString.makeAppointmentErrorMessage
-            self.actionButtonTitle = nil
-        }
-        else
-        {
-            let doctor = UserDefaults.standard.string(forKey: myString.currentSelectedDoctor)!
-            self.descriptionText = "When do you want to meet \(doctor)?"
-            self.actionButtonTitle = "Continue"
-            self.alternativeButtonTitle = "Go Back"
-            
-            timeCollectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 44, right: 0)
-            
-            let mondayTitle = prepareWeekdaySection(1)
-            let tuesdayTitle = prepareWeekdaySection(2)
-            let wednesdayTitle = prepareWeekdaySection(3)
-            let thursdayTitle = prepareWeekdaySection(4)
-            let fridayTitle = prepareWeekdaySection(5)
-            
-            
-            let mondaySection = prepareSection(mondayData)
-            let tuesdaySection = prepareSection(tuesdayData)
-            let wednesdaySection = prepareSection(wednesdayData)
-            let thursdaySection = prepareSection(thursdayData)
-            let fridaySection = prepareSection(fridayData)
-            
-            let finalProvider = ComposedProvider(sections: [mondayTitle,
-                                                            mondaySection,
-                                                            tuesdayTitle,
-                                                            tuesdaySection,
-                                                            wednesdayTitle,
-                                                            wednesdaySection,
-                                                            thursdayTitle,
-                                                            thursdaySection,
-                                                            fridayTitle,
-                                                            fridaySection])
-            
-            timeCollectionView.provider = finalProvider
-            
-            timeCollectionView.animator = WobbleAnimator()
-            arrangedSubViews.append(timeCollectionView)
-        }
-        return arrangedSubViews
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat =  "HH:mm"
+        let min = dateFormatter.date(from: "9:00")      //createing min time
+        let max = dateFormatter.date(from: "18:00") //creating max time
+        timePicker.locale =  NSLocale(localeIdentifier: "en_GB") as Locale
+        timePicker.minimumDate = min
+        timePicker.maximumDate = max
+        
+        
+        return [timePicker]
     }
     
-    
-    
-    func prepareSection(_ dataSource: [String]) -> Provider
-    {
-        let sections = BasicProvider(
-            dataSource: dataSource,
-            viewSource: ClosureViewSource(viewUpdater: { (view: UIButton , data: String, index: Int) in
-                view.backgroundColor = UIColor(red: 232/255, green: 122/255, blue: 144/255, alpha: 1)
-                view.setTitle("\(data)", for: .normal)
-            }),
-            sizeSource:  { (index, data, maxSize) -> CGSize in
-                return CGSize(width: 80, height: 80)
-        },
-            layout: FlowLayout(spacing: 10, justifyContent: .spaceAround, alignItems: .center)
-                .inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)))
-        
-        return sections
-    }
-    
-    func prepareWeekdaySection(_ id: Int) -> Provider
-    {
-        let weekday = getWeekday(id)
-        
-        
-        let viewSource = ClosureViewSource(viewUpdater: { (view: UILabel, data: String, index: Int) in
-            view.backgroundColor = UIColor(red: 252/255, green: 159/255, blue: 77/255, alpha: 1)
-            view.text = "\(data)"
-            view.textAlignment = .center
-            view.textColor = .white
-        })
-        
-        let sections = BasicProvider(
-            dataSource: [weekday],
-            viewSource: viewSource,
-            sizeSource:  { (index, data, maxSize) -> CGSize in
-                return CGSize(width: 270, height: 40)
-        },
-            layout: FlowLayout(lineSpacing: 15,
-                               interitemSpacing: 15,
-                               justifyContent: .center,
-                               alignItems: .start,
-                               alignContent: .start))
-        return sections
-    }
-    
-    func getWeekday(_ id: Int) -> String
-    {
-        switch id {
-        case 1:
-            return myString.weekdays[0]
-        case 2:
-            return myString.weekdays[1]
-        case 3:
-            return myString.weekdays[2]
-        case 4:
-            return myString.weekdays[3]
-        case 5:
-            return myString.weekdays[4]
-        default:
-            return ""
-        }
-    }
-    
-    
-    
-    func prepareData()
+    @objc func timeChanged()
     {
         
-        mondayData = UserDefaults.standard.stringArray(forKey: myString.mondayTimetable)!
-        tuesdayData = UserDefaults.standard.stringArray(forKey: myString.tuesdayTimetable)!
-        wednesdayData = UserDefaults.standard.stringArray(forKey: myString.wednesdayTimetable)!
-        thursdayData = UserDefaults.standard.stringArray(forKey: myString.thursdayTimetable)!
-        fridayData = UserDefaults.standard.stringArray(forKey: myString.fridayTimetable)!
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat =  "HH:mm"
+        let time = dateFormatter.string(from: timePicker.date)
+        UserDefaults.standard.set(time, forKey: myString.currentSelectedTime)
+        
+        
+        let type = UserDefaults.standard.string(forKey: myString.currentAppoinmentType)!
+        let weekday = UserDefaults.standard.string(forKey: myString.currentSelectedWeekday)!
+        
+        let ref = Database.database().reference().child(myString.availability).child(type).child(weekday)
+        ref.queryOrdered(byChild: time).queryEqual(toValue: 1)
+            .observeSingleEvent(of: .value, with: { snap in
+                for snap in snap.children.allObjects as! [DataSnapshot]
+                {
+                    print(snap.key)
+                }
+            })
+        
     }
-    
     
     override func alternativeButtonTapped(sender: UIButton) {
-        eraseTempData()
         manager?.popItem()
     }
     
-    override func actionButtonTapped(sender: UIButton) {
-        print("go to confirm page send")
-        //next or dismiss
-    }
     
-    func eraseTempData()
-    {
-        mondayData.removeAll()
-        tuesdayData.removeAll()
-        wednesdayData.removeAll()
-        thursdayData.removeAll()
-        fridayData.removeAll()
+    
+
+    override func actionButtonTapped(sender: UIButton) {
         
-        UserDefaults.standard.removeObject(forKey: myString.mondayTimetable)
-        UserDefaults.standard.removeObject(forKey: myString.tuesdayTimetable)
-        UserDefaults.standard.removeObject(forKey: myString.wednesdayTimetable)
-        UserDefaults.standard.removeObject(forKey: myString.thursdayTimetable)
-        UserDefaults.standard.removeObject(forKey: myString.fridayTimetable)
+        let delayForDisplay = DispatchTime.now() + .seconds(4)
+        prepareDataforDoctorBLTN()
+        
+        DispatchQueue.main.asyncAfter(deadline: delayForDisplay) {
+            UserDefaults.standard.set(self.doctorList, forKey: self.myString.doctorList)
+            if self.next == nil
+            {
+                self.next = BulletinDataSource.makeDoctorChoice()
+            }
+            self.manager?.displayNextItem()
+        }
+    }
+
+    
+    func prepareDataforDoctorBLTN() {
+        
+        doctorList.removeAll()
+        UserDefaults.standard.removeObject(forKey: myString.doctorList)
+        
+        let type = UserDefaults.standard.string(forKey: myString.currentAppoinmentType)!
+        let weekday = UserDefaults.standard.string(forKey: myString.currentSelectedWeekday)!
+        let time = UserDefaults.standard.string(forKey: myString.currentSelectedTime)!
+        print("\n\n\n")
+        print(type)
+        print(weekday)
+        print(time)
+        print("\n\n\n")
+        
+        
+        
+        let ref = Database.database().reference().child(myString.availability).child(type).child(weekday)
+        ref.queryOrdered(byChild: time).queryEqual(toValue: 1)
+            .observeSingleEvent(of: .value, with: { snap in
+                for snap in snap.children.allObjects as! [DataSnapshot]
+                {
+                    print(snap.key)
+                    self.doctorList.append(snap.key)
+                }
+            })
         
     }
     

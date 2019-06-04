@@ -17,6 +17,8 @@ class DatabaseService {
     var appointmentReference: DatabaseReference?
     var userReference: DatabaseReference?
     var doctorReference: DatabaseReference?
+    var availabilityReference: DatabaseReference?
+    
     let myString = StringCollection()
     
     init(_ user: User)
@@ -26,6 +28,7 @@ class DatabaseService {
         self.appointmentReference = Database.database().reference().child(myString.appointment).child(user.uid)
         self.userReference = Database.database().reference().child(myString.account).child(user.uid)
         self.doctorReference = Database.database().reference().child(myString.doctors)
+        self.availabilityReference = Database.database().reference().child(myString.availability)
     }
         
 }

@@ -12,6 +12,7 @@ import BLTNBoard
 
 class SomeoneElseNameBLTN: BLTNPageItem {
     
+    let myString = StringCollection()
     
     var nameTF: UITextField!
     
@@ -31,7 +32,15 @@ class SomeoneElseNameBLTN: BLTNPageItem {
     
     override func actionButtonTapped(sender: UIButton) {
         nameTF.resignFirstResponder()
-        super.actionButtonTapped(sender: sender)
+        let name = nameTF.text!
+        UserDefaults.standard.set(name, forKey: myString.currentPatientName)
+        print(name)
+        next = BulletinDataSource.makeAppointmentType()
+        manager?.displayNextItem()
+    }
+    
+    override func alternativeButtonTapped(sender: UIButton) {
+        manager?.popItem()
     }
     
 }

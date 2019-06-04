@@ -19,7 +19,7 @@ enum BulletinDataSource {
         page.descriptionText = "Who is this appointment for?"
         page.actionButtonTitle = "Continue"
         page.alternativeButtonTitle = "Not now"
-        
+        page.isDismissable = true
         return page
         
     }
@@ -32,7 +32,7 @@ enum BulletinDataSource {
         page.descriptionText = "Please enter patient's name "
         page.actionButtonTitle = "Continue"
         page.alternativeButtonTitle = "Go back"
-
+        page.isDismissable = true
         page.next = makeAppointmentType()
 
         page.actionHandler = { item in
@@ -53,9 +53,31 @@ enum BulletinDataSource {
         page.descriptionText = "Select the appointment type"
         page.actionButtonTitle = "Continue"
         page.alternativeButtonTitle = "Go back"
-
+        page.isDismissable = true
         return page
     }
+    
+    static func makeDateChoice() -> ChooseDateBLTN {
+        
+        let page = ChooseDateBLTN(title: "Choose a Date")
+        page.descriptionText = "When do you wanna meet us"
+        page.alternativeButtonTitle = "Go Back"
+        page.actionButtonTitle = "Continue"
+        
+        page.isDismissable = true
+        
+        page.actionHandler = { item in
+            print(page.datePicker.date)
+            item.manager?.displayNextItem()
+        }
+        
+        page.next = makeTimeChoice()
+        
+        return page
+
+    }
+
+    
     
     static func makeDoctorChoice() -> ChooseDoctorBLTN {
         
@@ -63,7 +85,7 @@ enum BulletinDataSource {
         page.descriptionText = "Choose a doctor below"
         page.actionButtonTitle = "Continue"
         page.alternativeButtonTitle = "Go Back"
-        
+        page.isDismissable = true
         return page
     }
     
@@ -73,9 +95,10 @@ enum BulletinDataSource {
         page.descriptionText = "When do you want to meet us?"
         page.alternativeButtonTitle = "Go Back"
         page.actionButtonTitle = "Continue"
-        
+                page.isDismissable = true
         return page
     }
+    
     
     
 }

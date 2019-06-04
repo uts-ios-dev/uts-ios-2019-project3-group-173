@@ -10,37 +10,50 @@ import Foundation
 import UIKit
 import Firebase
 import FirebaseAuth
-import CollectionKit
-
+import FirebaseDatabase
+import ViewAnimator
 
 class ViewAppointmentVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    
+    private let animations = [AnimationType.from(direction: .left, offset: 60.0)]
+    
+
+    
     @IBOutlet weak var appointmentTBV: UITableView!
     
-    let viewer = Auth.auth().currentUser
     var userAppointment = [Appointment]()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DatabaseService(viewer!).appointmentReference?.observe(DataEventType.value, with: { (snapshot) in
+        DatabaseService(Auth.auth().currentUser!).appointmentReference?.observe(DataEventType.value, with: { (snapshot) in
             print(snapshot)
             guard let appointmentList = AppointmentFirebaseSnapshot(snapshot) else {return}
+            print(appointmentList)
             self.userAppointment = appointmentList.appointments
             self.userAppointment.sort(by: { $0.date.compare($1.date) == .orderedDescending })
             self.appointmentTBV.reloadData()
         }) //getting appointment database according to current user logined -- in JSON
-            
+        
+    
         
         appointmentTBV.delegate = self
         appointmentTBV.dataSource = self
         appointmentTBV.reloadData()
         
-
         
+
         
     }
-
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        view.animate(animations: animations)
+    
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -48,9 +61,16 @@ class ViewAppointmentVC: UIViewController, UITableViewDataSource, UITableViewDel
         
         let nameLabel: UILabel = cell.viewWithTag(1) as! UILabel
         let doctorLabel: UILabel = cell.viewWithTag(2) as! UILabel
+        let phoneLabel: UILabel = cell.viewWithTag(3) as! UILabel
+        let timeLabel: UILabel = cell.viewWithTag(4) as! UILabel
         
-        nameLabel.text = userAppointment[indexPath.row].firstName + userAppointment[indexPath.row].lastName
-        doctorLabel.text = userAppointment[indexPath.row].doctor
+        
+        nameLabel.text = userAppointment[indexPath.row].name
+        let doctor = "Dr. " + userAppointment[indexPath.row].doctor
+        doctorLabel.text = doctor
+        phoneLabel.text = userAppointment[indexPath.row].phone
+        let myTime = userAppointment[indexPath.row].date + " " + userAppointment[indexPath.row].time
+        timeLabel.text = myTime
         
         return cell
     }
@@ -59,19 +79,7 @@ class ViewAppointmentVC: UIViewController, UITableViewDataSource, UITableViewDel
         return userAppointment.count
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let returnedView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 25))
-        returnedView.backgroundColor = UIColor.red
-
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 25))
-        label.textColor = .white
-        label.text = "Appointment"
-        label.textAlignment = .center
-        returnedView.addSubview(label)
-
-        return returnedView
-
-
-    }
+    
+    
 }
 

@@ -11,8 +11,7 @@ import Foundation
 struct Appointment {
     
     let appointmentId: String
-    let firstName: String
-    let lastName: String
+    let name: String
     let phone: String
     
     let doctor: String
@@ -24,8 +23,7 @@ struct Appointment {
         self.appointmentId = appointmentId
         
         guard
-            let firstName = dict["firstName"] as? String,
-            let lastName = dict["lastName"] as? String,
+            let name = dict["name"] as? String,
             let phone = dict["phone"] as? String,
             let doctor = dict["doctor"] as? String,
             
@@ -33,8 +31,8 @@ struct Appointment {
             let time = dict["time"] as? String
             else{return nil}
         
-        self.firstName = firstName
-        self.lastName = lastName
+        
+        self.name = name
         self.phone = phone
         
         self.doctor = doctor

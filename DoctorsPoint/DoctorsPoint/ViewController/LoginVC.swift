@@ -1,63 +1,65 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 
 class LoginVC: UIViewController {
     
-//    let myString = StringCollection()
-//    
-//    @IBOutlet weak var logoTopConstraintHeight: NSLayoutConstraint!
-//    @IBOutlet weak var topConstraintHeight: NSLayoutConstraint!
-//    
-//    @IBAction func ShowSignInPop(_ sender: Any) {
-//        topConstraintHeight.constant = 100
-//        logoTopConstraintHeight.constant = 100
-//        UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: .curveEaseOut, animations: {self.view.layoutIfNeeded()}, completion: nil)
-//        
-//        print("clicked")
-//    }
-//    
-//    //    @IBAction func hideSignInPop(_ sender: Any) {
-//    //        topConstraintHeight.constant = 800
-//    //        logoTopConstraintHeight.constant = 238
-//    //        UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: .curveEaseOut, animations: {self.view.layoutIfNeeded()}, completion: nil)
-//    //        print("clicked")
-//    //    }
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        topConstraintHeight.constant = 200
-//        logoTopConstraintHeight.constant = 238
-//        
-//        
-//    }
-//    
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//    }
-//    
-//    
-//    func checkLogined() {
-//        if Auth.auth().currentUser != nil
-//        {
-//            print("Current User valid \(Auth.auth().currentUser!.uid)")
-//            goToPatientMenu()
-//        }
-//        else
-//        {
-//            print("No Current User")
-//        }
-//        
-//    }
-//    
-//    
-//    
-//    func goToPatientMenu() {
-//        performSegue(withIdentifier: myString.toPatientMainView, sender: self)
-//    }
-//    
-//    func goToDoctorMenu() {
-//        performSegue(withIdentifier: myString.toDoctorMainView, sender: self)
-//    }
+    let myString = StringCollection()
+    var isConnected: Bool = false
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        checkConnection()
+    }
+    
+    func checkConnection() {
+        
+        let connectedRef = Database.database().reference(withPath: ".info/connected")
+        connectedRef.observe(.value, with: { snapshot in
+            if snapshot.value as? Bool ?? false {
+                self.isConnected = true
+                print("Connected")
+            } else {
+                self.isConnected = false
+                print("No Connection")
+                
+            }
+        })
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1)
+        {
+            if self.isConnected == false
+            {
+                self.sendAlertError()
+            }
+        }
+        
+        
+        
+    }
+    
+    
+    func sendAlertError()
+    {
+        let alert = UIAlertController(title: "Error", message: "Unable to reach Firebase Authentication, Please re-launch the app", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func goToPatientMenu() {
+        performSegue(withIdentifier: self.myString.fromLoginToTabBar, sender: self)
+    }
+    
+    func goToDoctorMenu() {
+        performSegue(withIdentifier: myString.toDoctorMainView, sender: self)
+    }
+    
+    
     
     
 }

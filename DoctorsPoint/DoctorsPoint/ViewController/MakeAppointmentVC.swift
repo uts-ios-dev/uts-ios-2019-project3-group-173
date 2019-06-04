@@ -97,37 +97,35 @@ class MakeAppointmentVC: UIViewController {
     
     @IBAction func submitAppointment(_ sender: Any) {
         //todo should check user input
-        let firstName = firstNameTF.text!
-        let lastName = lastNameTF.text!
-        let phone = phoneTF.text!
-        
-        let doctor = doctorTF.text!
-        let date = dateTF.text!
-        let time = timeTF.text!
-        
-        
-        let appointment = [
-            "firstName"  : firstName,
-            "lastName"   : lastName,
-            "phone" : phone,
-            
-            "doctor": doctor,
-            "date": date,
-            "time": time
-        ]
-        
-        
-//        let appointmentId: String
-//        let firstName: String
-//        let lastName: String
-//        let phone: String
-//
-//        let doctor: String
-//        let date: String
-//        let time: String
-        
-        
-        DatabaseService(patient!).appointmentReference?.childByAutoId().setValue(appointment)
+//        let name = nameTF.text!
+//        let phone = phoneTF.text!
+//        
+//        let doctor = doctorTF.text!
+//        let date = dateTF.text!
+//        let time = timeTF.text!
+//        
+//        
+//        let appointment = [
+//            "name": name
+//            "phone" : phone,
+//            
+//            "doctor": doctor,
+//            "date": date,
+//            "time": time
+//        ]
+//        
+//        
+////        let appointmentId: String
+////        let firstName: String
+////        let lastName: String
+////        let phone: String
+////
+////        let doctor: String
+////        let date: String
+////        let time: String
+//        
+//        
+//        DatabaseService(patient!).appointmentReference?.childByAutoId().setValue(appointment)
         
         //todo set as a dictionary instead of an object
     }

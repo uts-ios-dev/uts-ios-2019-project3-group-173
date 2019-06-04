@@ -79,6 +79,6 @@ class PatientTypeBLTN: BLTNPageItem {
     }
     
     override func alternativeButtonTapped(sender: UIButton) {
-        manager?.popItem()
+        manager?.dismissBulletin()
     }
     }

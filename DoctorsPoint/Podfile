@@ -9,11 +9,10 @@ target 'DoctorsPoint' do
 pod 'Firebase/Core'
 pod 'FirebaseDatabase' #database
 pod 'Firebase/Auth'
-
+pod "ViewAnimator"
 pod 'BulletinBoard'
 pod "CollectionKit"
 pod "CollectionKit/WobbleAnimator"
-
 
 
 pod 'Fabric', '~> 1.9.0'

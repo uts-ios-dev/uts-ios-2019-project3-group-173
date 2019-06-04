@@ -12,14 +12,20 @@ import FirebaseAuth
 struct UserInformation {
     
     let uid: String
+    let name: String
     let email: String
-    let isPatient: Bool
+    let photoUrl: URL
+    let phone: String
+    let level: Int
     
-    init(_ uid: String, _ email: String, isPatient: Bool)
+    init(_ uid: String, _ name: String, _ email: String, _ photoUrl: URL, _ phone: String , _ level: Int)
     {
         self.uid = uid
+        self.name = name
         self.email = email
-        self.isPatient = isPatient
+        self.photoUrl = photoUrl
+        self.phone = phone
+        self.level = level
     }
     
 }

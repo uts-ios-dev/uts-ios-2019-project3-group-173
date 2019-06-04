@@ -47,7 +47,7 @@ class ChooseDoctorBLTN: BLTNPageItem {
         else
         {
             self.descriptionText = "Choose your perferred doctor"
-            self.actionButtonTitle = "Continue"
+            self.actionButtonTitle = "Finish"
             collectionView.contentInset = UIEdgeInsets(top: 60, left: 20, bottom: 10, right: 20)
             collectionView.contentInsetAdjustmentBehavior = .automatic
             
@@ -83,23 +83,19 @@ class ChooseDoctorBLTN: BLTNPageItem {
             )
             
             collectionView.animator = WobbleAnimator()
-            
             arrangedSubViews.append(collectionView)
         }
+        
         
         return arrangedSubViews
         
     }
     
     override func actionButtonTapped(sender: UIButton) {
-        
-        let delayForDisplay = DispatchTime.now() + .seconds(4)
-        prepareDataForAppointmentTimeItem()
+    
+        submitAppointmentRequest()
         next = BulletinDataSource.makeTimeChoice()
-        DispatchQueue.main.asyncAfter(deadline: delayForDisplay) {
-            
-            self.manager?.displayNextItem()
-        }
+        self.manager?.dismissBulletin(animated: true)
     }
     
     override func alternativeButtonTapped(sender: UIButton) {
@@ -107,114 +103,38 @@ class ChooseDoctorBLTN: BLTNPageItem {
         manager?.popItem()
     }
     
-    func prepareDataForAppointmentTimeItem()
+    func submitAppointmentRequest()
     {
-        eraseTempData()
-        
-        let selectedDoctor = UserDefaults.standard.string(forKey: myString.currentSelectedDoctor)
-        DatabaseService(Auth.auth().currentUser!).doctorReference!.child(selectedDoctor!).observeSingleEvent(of: .value, with: { (snapshot) in
-            print(snapshot)
-            for child in snapshot.children {
-                let snap = child as! DataSnapshot
-                let available = snap.value as! Int
-                if available == 1
-                {
-                    self.filiterWeekday(snap.key)
-                }
-            }
-        }) //get doctorlist from firebase
-        
-        let delayForData = DispatchTime.now() + .seconds(2)
-        DispatchQueue.main.asyncAfter(deadline: delayForData)
-        {
-            self.printTimetable()
-            self.saveTempTimetabletoDatabase()
+       
+            let name = UserDefaults.standard.string(forKey: myString.currentPatientName)
+            let phone = UserDefaults.standard.string(forKey: myString.currentPatientPhone)
+            let doctor = UserDefaults.standard.string(forKey: myString.currentSelectedDoctor)
+            let date = UserDefaults.standard.string(forKey: myString.currentSelectedDate)
+            let time = UserDefaults.standard.string(forKey: myString.currentSelectedTime)
+            let type = UserDefaults.standard.string(forKey: myString.currentAppoinmentType)
+            let weekday = UserDefaults.standard.string(forKey: myString.currentSelectedWeekday)
             
-        }
-    }
-    
-    
-    func filiterWeekday(_ time: String)
-    {
-        switch time {
-        case "109":
-            mondayTimetable.append("09:00")
-            break
-        case "112":
-            mondayTimetable.append("12:00")
-            break
-        case "115":
-            mondayTimetable.append("15:00")
-            break
-        case "209":
-            tuesdayTimetable.append("09:00")
-            break
-        case "212":
-            tuesdayTimetable.append("12:00")
-            break
-        case "215":
-            tuesdayTimetable.append("15:00")
-            break
-        case "309":
-            wednesdayTimetable.append("09:00")
-            break
-        case "312":
-            wednesdayTimetable.append("12:00")
-            break
-        case "315":
-            wednesdayTimetable.append("15:00")
-            break
-        case "409":
-            thursdayTimetable.append("09:00")
-            break
-        case "412":
-            thursdayTimetable.append("12:00")
-            break
-        case "415":
-            thursdayTimetable.append("15:00")
-            break
-        case "509":
-            fridayTimetable.append("09:00")
-            break
-        case "512":
-            fridayTimetable.append("12:00")
-            break
-        case "515":
-            fridayTimetable.append("15:00")
-            break
-        default:
-            break
-        }
-    }
-    
-    func printTimetable()
-    {
-        print("Monday is \(mondayTimetable)")
-        print("Tuesday is \(tuesdayTimetable)")
-        print("Wednesday is \(wednesdayTimetable)")
-        print("Thursday is \(thursdayTimetable)")
-        print("Friday is \(fridayTimetable)")
-    }
-    
-    func saveTempTimetabletoDatabase()
-    {
-        UserDefaults.standard.set(mondayTimetable, forKey: myString.mondayTimetable)
-        UserDefaults.standard.set(tuesdayTimetable, forKey: myString.tuesdayTimetable)
-        UserDefaults.standard.set(wednesdayTimetable, forKey: myString.wednesdayTimetable)
-        UserDefaults.standard.set(thursdayTimetable, forKey: myString.thursdayTimetable)
-        UserDefaults.standard.set(fridayTimetable, forKey: myString.fridayTimetable)
-    }
-    
-
-    func eraseTempData()
-    {
-        cloudTimeList.removeAll()
-        mondayTimetable.removeAll()
-        tuesdayTimetable.removeAll()
-        wednesdayTimetable.removeAll()
-        thursdayTimetable.removeAll()
-        fridayTimetable.removeAll()
+            let appointment = [
+                "name": name,
+                "phone" : phone,
+                
+                "doctor": doctor,
+                "date": date,
+                "time": time
+            ]
+            
+            print(appointment)
+//        "name": name,
+//        "phone" : phone,
+//
+//        "doctor": doctor,
+//        "date": date,
+//        "time": time
         
-        
-    }
+            
+            DatabaseService(Auth.auth().currentUser!).appointmentReference?.childByAutoId().setValue(appointment)
+        DatabaseService(Auth.auth().currentUser!).availabilityReference?.child(type!).child(weekday!).child(doctor!).child(time!).setValue(0)
+            //todo set as a dictionary instead of an object
+        }
+    
 }

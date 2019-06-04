@@ -63,7 +63,7 @@ class AppointmentTypeBLTN: BLTNPageItem {
         
         UserDefaults.standard.set(self.myString.gp, forKey: self.myString.currentAppoinmentType)
         printCurrentType()
-        next = BulletinDataSource.makeDoctorChoice()
+        next = BulletinDataSource.makeDateChoice()
     }
     
     @objc func illnessButtonTapped() {
@@ -84,7 +84,7 @@ class AppointmentTypeBLTN: BLTNPageItem {
         
         UserDefaults.standard.set(self.myString.illness, forKey: self.myString.currentAppoinmentType)
         printCurrentType()
-        next = BulletinDataSource.makeDoctorChoice()
+        next = BulletinDataSource.makeDateChoice()
     }
     
     @objc func otherButtonTapped() {
@@ -105,7 +105,7 @@ class AppointmentTypeBLTN: BLTNPageItem {
         
         UserDefaults.standard.set(self.myString.other, forKey: self.myString.currentAppoinmentType)
         printCurrentType()
-        next = BulletinDataSource.makeDoctorChoice()
+        next = BulletinDataSource.makeDateChoice()
     }
     
     override func actionButtonTapped(sender: UIButton) {
@@ -114,14 +114,15 @@ class AppointmentTypeBLTN: BLTNPageItem {
         
         
         let delayForDisplay = DispatchTime.now() + .seconds(4)
-        prepareDataForNextItem()
+//        prepareDataForNextItem()
         
         DispatchQueue.main.asyncAfter(deadline: delayForDisplay) {
             if self.next == nil
             {
                 UserDefaults.standard.set(self.myString.gp, forKey: self.myString.currentAppoinmentType)
                 self.printCurrentType()
-                self.next = BulletinDataSource.makeDoctorChoice()
+//                self.next = BulletinDataSource.makeDoctorChoice()
+                self.next = BulletinDataSource.makeDateChoice()
             }
             self.manager?.displayNextItem()
         }
@@ -132,24 +133,24 @@ class AppointmentTypeBLTN: BLTNPageItem {
     }
     
     
-    func prepareDataForNextItem()
-    {
-        cloudDoctorList.removeAll()
-        DatabaseService(Auth.auth().currentUser!).doctorReference!.observe(.value, with: { (snapshot) in
-            for child in snapshot.children {
-                let snap = child as! DataSnapshot
-                self.cloudDoctorList.append(snap.key)
-            }
-        }) //get doctorlist from firebase
-        
-        let delayForData = DispatchTime.now() + .seconds(2)
-        DispatchQueue.main.asyncAfter(deadline: delayForData)
-        {
-            print(self.cloudDoctorList)
-            UserDefaults.standard.set(self.cloudDoctorList, forKey: self.myString.doctorList)
-            print(UserDefaults.standard.stringArray(forKey: self.myString.doctorList)!)
-        }
-    }
+//    func prepareDataForNextItem()
+//    {
+//        cloudDoctorList.removeAll()
+//        DatabaseService(Auth.auth().currentUser!).doctorReference!.observe(.value, with: { (snapshot) in
+//            for child in snapshot.children {
+//                let snap = child as! DataSnapshot
+//                self.cloudDoctorList.append(snap.key)
+//            }
+//        }) //get doctorlist from firebase
+//
+//        let delayForData = DispatchTime.now() + .seconds(2)
+//        DispatchQueue.main.asyncAfter(deadline: delayForData)
+//        {
+//            print(self.cloudDoctorList)
+//            UserDefaults.standard.set(self.cloudDoctorList, forKey: self.myString.doctorList)
+//            print(UserDefaults.standard.stringArray(forKey: self.myString.doctorList)!)
+//        }
+//    }
     
     func printCurrentType()
     {
