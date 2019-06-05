@@ -17,12 +17,13 @@ class LoginVC: UIViewController {
         print("clicked")
     }
     
-//    @IBAction func hideSignInPop(_ sender: Any) {
-//        topConstraintHeight.constant = 800
-//        logoTopConstraintHeight.constant = 238
-//        UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: .curveEaseOut, animations: {self.view.layoutIfNeeded()}, completion: nil)
-//        print("clicked")
-//    }
+    @IBAction func hideSignInPop(_ sender: Any) {
+        topConstraintHeight.constant = 100
+        logoTopConstraintHeight.constant = 238
+        UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: .curveEaseOut, animations: {self.view.layoutIfNeeded()}, completion: nil)
+        print("clicked")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        topConstraintHeight.constant = 200
