@@ -1,10 +1,16 @@
 Application Development of IOS Assignment 3
 
-Doctor's Point
+Doctor's Point - An application for patient to make, view appointment in real-time. Simple but interactive design.
+
+
 
 Group 173 - Jiajian Liang 13140797
-            Cheng Liang
-            Sakib
+            Cheng Liang 12795757
+            Sakib Mahmud 12705873 
+            Zhaoping Deng 12546267
+            
+
+
             
    
 
