@@ -16,3 +16,6 @@ Third-Party Library: Firebase, ViewAnimator, BulletinBoard, CollectionKit, Colle
 Please download the orginal file from "Jiajian" branch to get the latest code to run . 
 
 If there is any issue about running this project, please feel free to contact email(as shown above) "id@student.uts.edu.au"
+
+
+Notes: Now default branch is set to "Jiajian" because we felt that merging the code on Github was annoying and was easy to make things worse.  So we merge by ourselves and just upload to "Jiajian"' Branch 
