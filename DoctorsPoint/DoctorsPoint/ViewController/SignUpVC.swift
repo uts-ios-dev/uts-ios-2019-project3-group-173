@@ -39,6 +39,9 @@ class SignUpVC: UIViewController {
         bePatient.isEnabled = false
     }
     
+    /*
+     add user to firebase database at the first time user signup to this app
+     */
     func addAccountInformationToDB(_ user: User, _ name: String, _ phone: String)
     {
         
@@ -101,6 +104,9 @@ class SignUpVC: UIViewController {
         }
     }
     
+    /*
+     display diffrent user interface according to current user type.
+     */
     func showMenu(_ menuID: Int)
     {
         if menuID == 0
@@ -122,7 +128,6 @@ class SignUpVC: UIViewController {
         bePatient.isHidden = false
         beDoctor.isEnabled = false
         beDoctor.isHidden = true
-        
     }
     
     
@@ -149,7 +154,9 @@ class SignUpVC: UIViewController {
 
     }
 
-
+    /*
+     return trure if email is valid
+     */
     func isValidEmail(testStr:String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
 

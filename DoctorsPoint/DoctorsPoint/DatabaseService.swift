@@ -11,7 +11,12 @@ import FirebaseDatabase
 import Firebase
 import FirebaseAuth
 
+/*
+ this class is for firebase database reference
+*/
+
 class DatabaseService {
+    
     
     var user: User?
     var appointmentReference: DatabaseReference?
@@ -21,6 +26,7 @@ class DatabaseService {
     
     let myString = StringCollection()
     
+
     init(_ user: User)
     {
         self.user = user

@@ -9,6 +9,12 @@
 import Foundation
 import FirebaseAuth
 
+
+
+/*
+ data structure for User Information
+ */
+
 struct UserInformation {
     
     let uid: String

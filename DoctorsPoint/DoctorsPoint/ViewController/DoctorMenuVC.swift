@@ -44,7 +44,9 @@ class DoctorMenuVC: UIViewController{
         getDoctorList()
     }
     
-    
+    /*
+     create availability for a doctor
+     */
     func initAvailability(_ name: String)
     {
         if typeTF.text != nil

@@ -16,7 +16,7 @@ import ViewAnimator
 class ViewAppointmentVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
-    private let animations = [AnimationType.from(direction: .left, offset: 60.0)]
+    private let animations = [AnimationType.from(direction: .left, offset: 60.0)] //animation for displaying tableview
     
 
     
@@ -36,7 +36,7 @@ class ViewAppointmentVC: UIViewController, UITableViewDataSource, UITableViewDel
             self.userAppointment = appointmentList.appointments
             self.userAppointment.sort(by: { $0.date.compare($1.date) == .orderedDescending })
             self.appointmentTBV.reloadData()
-        }) //getting appointment database according to current user logined -- in JSON
+        }) //getting appointment database according to current user logined
         
     
         
@@ -48,7 +48,6 @@ class ViewAppointmentVC: UIViewController, UITableViewDataSource, UITableViewDel
 
         
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         view.animate(animations: animations)

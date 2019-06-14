@@ -21,6 +21,10 @@ class PersonalVC: UIViewController {
     @IBAction func udpate(_ sender: Any) {
     }
     
+
+    /*
+     sign out curernt user
+     */
     @IBAction func signOut(_ sender: Any) {
         
         let firebaseAuth = Auth.auth()

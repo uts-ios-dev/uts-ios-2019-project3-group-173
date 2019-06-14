@@ -62,7 +62,7 @@ class PatientMenuVC: UIViewController {
                 })
 
                 
-                let myUrl = URL.init(string: "https://lh3.googleusercontent.com/a-/AAuE7mAL5KcZ16BY8OZwtfvIagZjmUhNvgp8RvAYQX8Yfg=s96")
+                let myUrl = URL.init(string: "https://lh3.googleusercontent.com/a-/AAuE7mAL5KcZ16BY8OZwtfvIagZjmUhNvgp8RvAYQX8Yfg=s96")//no image upload was made, default photoUrl is provided
                 let data = try? Data(contentsOf: myUrl!)
                 userPhoto.image = UIImage(data: data!)
 //                let photoURL = user.photoURL

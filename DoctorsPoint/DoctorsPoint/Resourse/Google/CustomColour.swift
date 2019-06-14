@@ -12,5 +12,6 @@ import UIKit
 class CustomColour {
     
     var tsuYukuSa_Blue = UIColor(red: 46, green: 169, blue: 223, alpha: 1)
-    
+    /*
+     custom colour*/
 }

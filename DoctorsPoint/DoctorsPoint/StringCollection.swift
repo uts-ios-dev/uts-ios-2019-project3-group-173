@@ -55,4 +55,11 @@ class StringCollection {
     let fromLoginToTabBar = "fromLoginToTabBar"
     let fromUpdatetoPMenu = "fromUpdatetoPMenu"
     let fromSignIntoDView = "fromSignIntoDView"
+    
+    
+
+    
+    
+    
+    
 }

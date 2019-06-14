@@ -8,6 +8,10 @@
 
 import Foundation
 
+
+/*
+data model for appointment 
+ */
 struct Appointment {
     
     let appointmentId: String

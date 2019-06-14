@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		182D4B42B49A3155F1B8F416 /* Pods_DoctorsPoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33871A608707C4C1A27B88CA /* Pods_DoctorsPoint.framework */; };
 		2544A37A22A63A02001D2F4B /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2544A37922A63A02001D2F4B /* SignInVC.swift */; };
+		4F07270022B3EF20000D64C0 /* PersonalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0726FF22B3EF20000D64C0 /* PersonalVC.swift */; };
 		4F1854C4228DA0B40049BA90 /* PatientMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1854C3228DA0B40049BA90 /* PatientMenuVC.swift */; };
 		4F1854C6228DA7700049BA90 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1854C5228DA7700049BA90 /* DatabaseService.swift */; };
 		4F1854C8228DA9BF0049BA90 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1854C7228DA9BF0049BA90 /* UserInformation.swift */; };
@@ -31,7 +32,6 @@
 		4F797F522292C48F0025E5A2 /* FirebaseSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F797F512292C48F0025E5A2 /* FirebaseSnapshot.swift */; };
 		4F8B6E012292D3AD002C7292 /* CustomColour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8B6E002292D3AD002C7292 /* CustomColour.swift */; };
 		4FC8BF6E228D878E00BC610E /* StringCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC8BF6D228D878E00BC610E /* StringCollection.swift */; };
-		4FD0E0E122A726520066AD6E /* PersonalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD0E0E022A726510066AD6E /* PersonalVC.swift */; };
 		4FD0E0E522A72CD20066AD6E /* UpdatePersonalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD0E0E422A72CD20066AD6E /* UpdatePersonalVC.swift */; };
 		4FE3D57C229E6DC9000179FE /* DoctorAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE3D57B229E6DC9000179FE /* DoctorAvailability.swift */; };
 		4FE3D580229E885C000179FE /* ChooseDoctorBLTN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE3D57F229E885C000179FE /* ChooseDoctorBLTN.swift */; };
@@ -63,6 +63,7 @@
 		22DDAEA8CE993D5A5CC36248 /* Pods-DoctorsPoint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorsPoint.debug.xcconfig"; path = "Target Support Files/Pods-DoctorsPoint/Pods-DoctorsPoint.debug.xcconfig"; sourceTree = "<group>"; };
 		2544A37922A63A02001D2F4B /* SignInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		33871A608707C4C1A27B88CA /* Pods_DoctorsPoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoctorsPoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F0726FF22B3EF20000D64C0 /* PersonalVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalVC.swift; sourceTree = "<group>"; };
 		4F1854C3228DA0B40049BA90 /* PatientMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientMenuVC.swift; sourceTree = "<group>"; };
 		4F1854C5228DA7700049BA90 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		4F1854C7228DA9BF0049BA90 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserInformation.swift; path = DoctorsPoint/UserInformation.swift; sourceTree = SOURCE_ROOT; };
@@ -91,7 +92,6 @@
 		4F797F512292C48F0025E5A2 /* FirebaseSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirebaseSnapshot.swift; path = DoctorsPoint/ViewController/FirebaseSnapshot.swift; sourceTree = SOURCE_ROOT; };
 		4F8B6E002292D3AD002C7292 /* CustomColour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColour.swift; sourceTree = "<group>"; };
 		4FC8BF6D228D878E00BC610E /* StringCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCollection.swift; sourceTree = "<group>"; };
-		4FD0E0E022A726510066AD6E /* PersonalVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalVC.swift; sourceTree = "<group>"; };
 		4FD0E0E422A72CD20066AD6E /* UpdatePersonalVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatePersonalVC.swift; sourceTree = "<group>"; };
 		4FE3D57B229E6DC9000179FE /* DoctorAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorAvailability.swift; sourceTree = "<group>"; };
 		4FE3D57F229E885C000179FE /* ChooseDoctorBLTN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDoctorBLTN.swift; sourceTree = "<group>"; };
@@ -238,7 +238,7 @@
 				4F1854C3228DA0B40049BA90 /* PatientMenuVC.swift */,
 				4F797F4F2292C3550025E5A2 /* ViewAppointmentVC.swift */,
 				E31CA020229C2E6200812399 /* SignUpVC.swift */,
-				4FD0E0E022A726510066AD6E /* PersonalVC.swift */,
+				4F0726FF22B3EF20000D64C0 /* PersonalVC.swift */,
 				2544A37922A63A02001D2F4B /* SignInVC.swift */,
 				4FD0E0E422A72CD20066AD6E /* UpdatePersonalVC.swift */,
 			);
@@ -515,6 +515,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F07270022B3EF20000D64C0 /* PersonalVC.swift in Sources */,
 				4F8B6E012292D3AD002C7292 /* CustomColour.swift in Sources */,
 				4F1854C6228DA7700049BA90 /* DatabaseService.swift in Sources */,
 				4F797F502292C3550025E5A2 /* ViewAppointmentVC.swift in Sources */,
@@ -531,7 +532,6 @@
 				4F2A9748228C1C7600288EA0 /* AppDelegate.swift in Sources */,
 				4F464D51229C61730026FC00 /* AppointmentTypeBLTN.swift in Sources */,
 				4F797F522292C48F0025E5A2 /* FirebaseSnapshot.swift in Sources */,
-				4FD0E0E122A726520066AD6E /* PersonalVC.swift in Sources */,
 				2544A37A22A63A02001D2F4B /* SignInVC.swift in Sources */,
 				4F464D49229C23660026FC00 /* PatientTypeBLTN.swift in Sources */,
 				4FE3D57C229E6DC9000179FE /* DoctorAvailability.swift in Sources */,

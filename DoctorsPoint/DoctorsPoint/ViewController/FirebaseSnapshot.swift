@@ -9,6 +9,11 @@
 import Foundation
 import Firebase
 
+
+
+/*
+ strcut for appoinement array element.
+ */
 struct AppointmentFirebaseSnapshot {
     
     var appointments: [Appointment]
@@ -25,6 +30,9 @@ struct AppointmentFirebaseSnapshot {
     }
 }
 
+/*
+ strcut for availability array element.
+ */
 struct AvailabilitySnapshot {
     
     var totalAvailability: [DoctorAvailability]

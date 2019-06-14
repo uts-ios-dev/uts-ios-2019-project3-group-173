@@ -8,6 +8,10 @@
 
 import Foundation
 
+/*
+ data structure for Doctor Availability
+ */
+
 struct DoctorAvailability {
     
     let weekday: String

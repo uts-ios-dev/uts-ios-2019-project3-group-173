@@ -17,8 +17,11 @@ class LoginVC: UIViewController {
         checkConnection()
     }
     
+    
+    /*
+     check if device can connect to Firebase.
+     */
     func checkConnection() {
-        
         let connectedRef = Database.database().reference(withPath: ".info/connected")
         connectedRef.observe(.value, with: { snapshot in
             if snapshot.value as? Bool ?? false {
@@ -38,12 +41,12 @@ class LoginVC: UIViewController {
                 self.sendAlertError()
             }
         }
-        
-        
-        
+
     }
     
-    
+    /*
+     send alert to user if cannot connecct to firebase
+     */
     func sendAlertError()
     {
         let alert = UIAlertController(title: "Error", message: "Unable to reach Firebase Authentication, Please re-launch the app", preferredStyle: UIAlertController.Style.alert)
@@ -59,7 +62,8 @@ class LoginVC: UIViewController {
         performSegue(withIdentifier: myString.toDoctorMainView, sender: self)
     }
     
-    
-    
-    
+
 }
+
+
+
